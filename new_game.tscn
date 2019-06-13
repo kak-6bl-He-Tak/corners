@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="CheckBox" type="Button"]
+margin_left = 142.0
+margin_top = 473.0
+margin_right = 266.0
+margin_bottom = 497.0
+text = "NEW GAME"
