@@ -1,8 +1,5 @@
 extends Node2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
 var k = 32 # corection
 var Black = preload("res://black.tscn")
@@ -31,7 +28,7 @@ func _process(delta):
 		var y = int (mouse.y)
 		var last_x = pick.x
 		var last_y = pick.y
-		var on_board = (x >= 0 && x <= 8) && (y >= 0 && y <= 8) #координата мыши в пределах доски
+		var on_board = (x >= 0 && x <= 7) && (y >= 0 && y <= 7) #координата мыши в пределах доски
 		if (on_board && (board[y][x] == 1 || board[y][x] == 2)) :
 			if pick.checker == board[y][x] || !pick.checker :
 				if (board[y][x] == 1 && ! a) || (board[y][x] == 2 && a) :
@@ -69,14 +66,15 @@ func _process(delta):
 		set_checkers()
 		add_child(message)
 		get_node("button").position.y = 0
+		Global.steps = STEP
 	pass
 
 func new_game() : # начальные данные игры
 	board = [
-		[1,1,1,0,0,0,0,0],
-		[1,1,1,0,0,0,0,0],
-		[1,1,1,0,0,0,0,0],
-		[0,0,0,0,0,0,0,0],
+		[2,2,2,0,0,0,0,0],
+		[2,2,2,0,0,0,0,0],
+		[0,2,2,0,0,0,0,0],
+		[2,0,0,0,0,0,0,0],
 		[0,0,0,0,0,0,0,0],
 		[0,0,0,0,0,2,2,2],
 		[0,0,0,0,0,2,2,2],
@@ -212,7 +210,7 @@ func set_checkers() : # устанавливает спрайты фигур и 
 	var x
 	var y = 0
 	var checker
-	var i = 2
+	var i = 3
 
 	checker = get_children()
 	while i < checker.size() :
@@ -263,4 +261,14 @@ func get_field_click() : # возвращает координаты курсо�
 
 func _on_button_button_down():
 	new_game()
+	pass # Replace with function body.
+
+
+func _on_menu_button_down():
+	get_tree().change_scene("res://menu.tscn")
+	pass # Replace with function body.
+
+
+func _on_Button_button_down():
+	get_tree().change_scene("res://save.tscn")
 	pass # Replace with function body.

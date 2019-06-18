@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://hall_of_fame.gd" type="Script" id=1]
+
+[node name="hall_of_fame" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_right = 420.0
+margin_bottom = 500.0
+
+[node name="Button" type="Button" parent="Label"]
+margin_left = 325.132
+margin_top = 475.493
+margin_right = 416.132
+margin_bottom = 495.493
+text = "Menu"
+[connection signal="button_down" from="Label/Button" to="." method="_on_Button_button_down"]

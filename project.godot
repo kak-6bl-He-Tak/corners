@@ -16,8 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="corners"
-run/main_scene="res://test.tscn"
+run/main_scene="res://menu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://Global.gd"
 
 [display]
 
