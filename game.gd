@@ -57,10 +57,10 @@ func _process(delta):
 		message.text = "STEP " + str(Print_step) + ' ' + player
 		set_checkers()
 		add_child(message)
-		get_node("button").position.y = 50
+		get_node("button").position.y = 100
 	else :
 		if win == 1 :
-			message.text = "BLAK WINNER!"
+			message.text = "BLACK WINNER!"
 		else :
 			message.text = "WHITE WINNER!"
 		set_checkers()
