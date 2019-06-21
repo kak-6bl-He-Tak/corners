@@ -1,16 +1,24 @@
 extends Node2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var file = File.new()
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	var a
+	file.open(Global.path, File.READ)
+	a = file.get_csv_line()
+	file.close()
+	
+	var text
+	var i = a.size()
+	var j = 1
+	if i > 10 :
+		i = 10
+	text = str(a[0])
+	while j < i :
+		text += ('\n' + a[j])
+		j += 1
+	$Label.text = text
 	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 
 func _on_Button_button_down():
